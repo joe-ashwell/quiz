@@ -8,7 +8,7 @@
 
 const getRandomIndexValues = maxValue => {
 
-  return Math.floor(Math.random() * maxValue + 1);
+  return Math.floor(Math.random() * maxValue);
 
 }
 
@@ -49,12 +49,17 @@ const getQuestionAndAnswerOptions = () => {
 
 const setHTMLQuestionAndAnswers = () => {
 
+  const indexArray = [1, 2, 3];
+  let sortedIndexArray = indexArray.sort( () => {
+    return 0.5 - Math.random();
+  });  
+
   const questionAnswerData = getQuestionAndAnswerOptions();
 
   questionBox = document.querySelector('div.question h2');
-  answerBox1 = document.getElementById(`answer${1}`);
-  answerBox2 = document.getElementById(`answer${2}`);
-  answerBox3 = document.getElementById(`answer${3}`);
+  answerBox1 = document.getElementById(`answer${sortedIndexArray[0]}`);
+  answerBox2 = document.getElementById(`answer${sortedIndexArray[1]}`);
+  answerBox3 = document.getElementById(`answer${sortedIndexArray[2]}`);
 
   questionBox.innerHTML = questionAnswerData.question;
   answerBox1.innerHTML = questionAnswerData.answer;
@@ -64,4 +69,4 @@ const setHTMLQuestionAndAnswers = () => {
 }
 
 
-setHTMLQuestionAndAnswers();
+window.addEventListener('load', setHTMLQuestionAndAnswers);
