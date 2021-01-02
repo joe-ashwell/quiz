@@ -2,7 +2,7 @@ body {
   background-color: rebeccapurple;
 }
 
-section {
+section.game {
   display: flex;
   flex-direction: column;
   background-color: rosybrown;
@@ -30,4 +30,27 @@ div.answers {
 div.answers h2 {
   background-color: sandybrown;
   padding: 2rem;
+}
+
+.drag-over {
+  border: dashed 3px red;
+}
+
+
+div.feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+section.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
