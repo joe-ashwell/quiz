@@ -1336,7 +1336,7 @@ const werkwoordenList = [
     // Engels
     engels: 'to lose',
     // Infinitief
-    infin: 'verloren',
+    infin: 'verliezen',
     // Type
     type: 'irregular'
   },

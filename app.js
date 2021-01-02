@@ -58,6 +58,9 @@ const setHTMLQuestionAndAnswers = () => {
   answerBox1.innerHTML = questionAnswerData.answer;
   answerBox2.innerHTML = questionAnswerData.dummyAnswer1;
   answerBox3.innerHTML = questionAnswerData.dummyAnswer2;
+
+  const feedbackDiv = document.querySelector('div.feedback');
+  feedbackDiv.innerHTML = ``;
 }
 
 // Drag & Drop
@@ -112,27 +115,29 @@ function drop(e) {
 
   if (draggedContent === dutchAnswer.engels) {
     console.log('correct');
-    renderFeedback('👍', 'Correct!', `<button class='play-again'>Go again</button>`);
+    renderFeedback('👍', 'Correct!');
+    setTimeout(() => {
+      setHTMLQuestionAndAnswers();
+    }, 2500);
   } else {
     console.log('fout');
     renderFeedback('😔', 'Terrible, try again!');
   }
 }
 
-const renderFeedback = (emoji, text, button = ``) => {
+const renderFeedback = (emoji, text) => {
   const feedbackDiv = document.querySelector('div.feedback');
   feedbackDiv.innerHTML = `
   <h3>${emoji} ${text}!</h3>
-  ${button}
   `;
-  if (button) {
-    const playAgainBtn = document.querySelector('button.play-again')
-    playAgainBtn.addEventListener('click', setHTMLQuestionAndAnswers);
-    playAgainBtn.addEventListener('click', () => {
-      const feedbackDiv = document.querySelector('div.feedback');
-      feedbackDiv.innerHTML = '';
-    })
-  }
+  // if (button) {
+  //   const playAgainBtn = document.querySelector('button.play-again')
+  //   playAgainBtn.addEventListener('click', setHTMLQuestionAndAnswers);
+  //   playAgainBtn.addEventListener('click', () => {
+  //     const feedbackDiv = document.querySelector('div.feedback');
+  //     feedbackDiv.innerHTML = '';
+  //   })
+  // }
 }
 
 
