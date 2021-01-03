@@ -132,6 +132,8 @@ function drop(e) {
       setHTMLQuestionAndAnswers();
     }, 3000);
     setScore();
+    const instruction = document.querySelector('h3.instruction');
+    instruction.style.display = 'none';
   } else {
     console.log('fout');
     renderFeedback('😔', 'Nope, try again!', `${dutchAnswer.infin} means '${dutchAnswer.engels}'`, 'wrong');
