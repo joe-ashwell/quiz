@@ -1,11 +1,33 @@
+:root {
+  --color-gunmetal: #30343F;
+  --color-white: #FAFAFF;
+  --color-lavender: #E4D9FF; 
+  --color-tart-orange: #F44E3F;
+}
+
+* {
+  font-family: 'Oxygen', sans-serif;
+}
+
+p {
+  font-size: 19px;
+}
+
 body {
-  background-color: rebeccapurple;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: space-evenly;
+  min-height: 100vh;
+  margin: 0;
+  background: #EEF2F7;
 }
 
 section.game {
   display: flex;
   flex-direction: column;
-  background-color: rosybrown;
+  justify-content: space-evenly;
+  min-height: 70vh;
 }
 
 div.question {
@@ -15,9 +37,20 @@ div.question {
 }
 
 .question h2 {
-  background-color: sandybrown;
+  background-color: var(--color-white);
   padding: 2rem;
   cursor: pointer;
+  border: solid 3px transparent;
+  border-radius: 1rem;
+  min-width: 15vw;
+  text-align: center;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 div.answers {
@@ -28,29 +61,58 @@ div.answers {
 }
 
 div.answers h2 {
-  background-color: sandybrown;
   padding: 2rem;
+  border: dashed 3px black;
+  border-radius: 1rem;
+  min-width: 15vw;
+  text-align: center;
 }
 
 .drag-over {
-  border: dashed 3px red;
+  border: solid 3px var(--color-tart-orange) !important;
+  color: var(--color-tart-orange);
+  cursor: pointer;
+  box-shadow: 10px 10px var(--color-tart-orange);
 }
-
 
 div.feedback {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  color: white;
-}
-
-.hide {
-  display: none;
+  min-width: 40vw;
+  margin: auto;
+  border-radius: 1rem;
 }
 
 section.score {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  background-color: var(--color-gunmetal);
+  color: var(--color-lavender);
+  padding: 1rem;
+  padding-left: 10vw;
+}
+
+p.questions-asked {
+  margin-right: 2rem;
+}
+
+.wrong {
+  color: #A94442;
+  background-color: #F2DEDE !important;
+}
+
+.correct {
+  color: #3C763D;
+  background-color: #DFF0D8 !important;
+}
+
+p.translation-explanation::first-letter {
+  text-transform: uppercase !important;
+}
+
+p.translation-explanation {
+  padding-bottom: 1px;
+  margin-left: 0.5rem;
 }
